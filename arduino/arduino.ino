@@ -261,6 +261,9 @@ void setup() {
   // done
   analogWrite(PIN_LED_GREEN, 48);
   analogWrite(PIN_LED_RED, 0);
+
+  LED_RED = 0;
+  LED_GREEN = 48;
 }
 
 int checkBattery9V(bool ignoreTimer = false)
@@ -339,6 +342,14 @@ void mode_2ch_lights()
   channel[CH2] = analogToChannel(CH2);
   steering();
   lights();
+
+  bool d = channel[CH2] > RANGE_CENTER(channel_range[CH2]) + 2;
+  bool r = channel[CH2] < RANGE_CENTER(channel_range[CH2]) - 2;
+
+  LED_GREEN = 24;
+  update_LEDs(d ? 64 : 0,
+              !d && !r ? 64 : 0,
+              r ? 64 : 0);
 
   tx((txCH1 ? TX_CH1 : 0) | TX_CH2 | TX_CH3 | (txCH4 ? TX_CH4 : 0));
   txCH1 = false;
@@ -649,6 +660,7 @@ void mode_change()
 
     LED_GREEN = g;
     LED_RED = r;
+    update_LEDs();
   }
 }
 //*/
