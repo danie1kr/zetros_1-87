@@ -2,7 +2,7 @@
 ## goal
 This repository holds the files for a remote controlled Mercedes Benz Zetros model car (1:87 scale) and a custom PCB for a teensy based remote control. 
 The model car itself is based on the herpa model car (#091213) outfitted with a fast build chassis from [here](http://www.mikromodellbau.de), a servo and some LEDs.
-![enter image description here](https://github.com/danie1kr/zetros_1-87/raw/master/image.jpg)
+![enter image description here](https://github.com/danie1kr/zetros_1-87/raw/master/images/zetros_with_remote.jpg)
 ## repository structure
 - **arduino**: the code files for the teensy
 - **schematics**: the schematics and pcb PDF files
